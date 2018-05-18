@@ -23,20 +23,19 @@ namespace GradeBook.GradeBooks
             // create list of students' average grades in descending order
             var grades = Students.OrderByDescending(s => s.AverageGrade).Select(s => s.AverageGrade).ToList();
 
-            if (averageGrade >= grades[studentsPerBracket])
+            if (averageGrade >= grades[studentsPerBracket - 1])
                 return 'A';
 
-            else if (averageGrade >= grades[studentsPerBracket * 2])
+            else if (averageGrade >= grades[studentsPerBracket * 2 - 1])
                 return 'B';
 
-            else if (averageGrade >= grades[studentsPerBracket * 3])
+            else if (averageGrade >= grades[studentsPerBracket * 3 - 1])
                 return 'C';
 
-            else if (averageGrade >= grades[studentsPerBracket * 4])
+            else if (averageGrade >= grades[studentsPerBracket * 4 - 1])
                 return 'D';
-
-            else
-                return 'F';
+            
+            return 'F';
         }
     }
 }
